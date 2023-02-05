@@ -1,3 +1,5 @@
+// Setup scrpit to read .env file a add variables to nodeJS process.env
+// and then update the environment.ts file
 const { writeFile } = require('fs');
 require('dotenv').config();
 
