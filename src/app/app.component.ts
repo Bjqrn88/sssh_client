@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
     this.autoGetNewDateAndResetTimer();
   }
 
+  // Get the date from the backend and decrypt it
+  // Using a rxjs timer this method will call it self ever 1-5sec
   autoGetNewDateAndResetTimer(): void {
     this.ssshDateService.getDate().subscribe((d: SsshDate) => {
       this.date = this.ssshDateService.decryptDate(d.date);

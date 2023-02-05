@@ -11,10 +11,12 @@ import * as CryptoJS from 'crypto-js';
 export class SsshDateService {
   constructor(private httpClient: HttpClient) {}
 
+  // Get the date from the backend
   getDate(): Observable<SsshDate> {
     return this.httpClient.get<SsshDate>(environment.DATE_URL);
   }
 
+  // Decrypt a given date using ASE
   decryptDate(date: string): String {
     return CryptoJS.AES.decrypt(date, CryptoJS.enc.Base64.parse(environment.SSSH_KEY), {
       mode: CryptoJS.mode.ECB,
